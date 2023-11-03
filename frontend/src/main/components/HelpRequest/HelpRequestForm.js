@@ -53,18 +53,16 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             isInvalid={Boolean(errors.requesterEmail)}
                             {...register("requesterEmail", { 
                                 required: "RequesterEmail is required.",
-                                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.requesterEmail?.message}
-                            {errors.requesterEmail?.type === 'pattern' && 'RequesterEmail must be in the format user@domainstring, e.g. cgaucho@ucsb.edu'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="teamId">Team Id</Form.Label>
+                        <Form.Label htmlFor="teamId">Team </Form.Label>
                         <Form.Control
                             data-testid="HelpRequestForm-teamId"
                             id="teamId"
@@ -75,7 +73,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                                 pattern: /[A-Za-z]{1}\d{2}-\d{1}(am|pm)-\d{1}/i })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.teamId && 'TeamId is required. '}
+                            {errors.teamId && 'TeamId is required.'}
                             {errors.teamId?.type === 'pattern' && 'TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3'}
                         </Form.Control.Feedback>
                     </Form.Group>
@@ -108,7 +106,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             {...register("requestTime", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.requestTime && 'RequestTime is required. '}
+                            {errors.requestTime && 'RequestTime is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

@@ -1,6 +1,6 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
 import HelpRequestForm from "main/components/HelpRequest/HelpRequestForm";
-import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
+import { helpRequestsFixtures } from "fixtures/helpRequestFixtures";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const mockedNavigate = jest.fn();
@@ -29,7 +29,7 @@ describe("HelpRequestForm tests", () => {
 
         render(
             <Router  >
-                <HelpRequestForm initialContents={helpRequestFixtures.oneRequest} />
+                <HelpRequestForm initialContents={helpRequestsFixtures.oneRequest} />
             </Router>
         );
         await screen.findByTestId(/HelpRequestForm-id/);
@@ -45,14 +45,14 @@ describe("HelpRequestForm tests", () => {
                 <HelpRequestForm />
             </Router>
         );
-        await screen.findByTestId("HelpRequestForm-requesterEmail");
-        const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+        await screen.findByTestId("HelpRequestForm-teamId");
+        const requesterEmailField = screen.getByTestId("HelpRequestForm-teamId");
         const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
         fireEvent.change(requesterEmailField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
 
-        await screen.findByText(/RequesterEmail must be in the format user@domainstring, e.g. cgaucho@ucsb.edu/);
+        await screen.findByText(/TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3/);
     });
 
     test("Correct Error messsages on missing input", async () => {
@@ -68,10 +68,9 @@ describe("HelpRequestForm tests", () => {
         fireEvent.click(submitButton);
 
         await screen.findByText(/RequesterEmail is required./);
-        expect(screen.getByText(/TeamId is required. /)).toBeInTheDocument();
-        expect(screen.getByText(/LocalDateTime is required./)).toBeInTheDocument();
+        expect(screen.getByText(/TeamId is required./)).toBeInTheDocument();
         expect(screen.getByText(/TableOrBreakoutRoom is required./)).toBeInTheDocument();
-        expect(screen.getByText(/RequestTime is required. /)).toBeInTheDocument();
+        expect(screen.getByText(/RequestTime is required./)).toBeInTheDocument();
 
     });
 
@@ -106,7 +105,6 @@ describe("HelpRequestForm tests", () => {
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
-        expect(screen.queryByText(/RequesterEmail must be in the format user@domainstring, e.g. cgaucho@ucsb.edu/)).not.toBeInTheDocument();
         expect(screen.queryByText(/TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3/)).not.toBeInTheDocument();
         expect(screen.queryByText(/Solved must be true or false, e.g. true/)).not.toBeInTheDocument();
 
