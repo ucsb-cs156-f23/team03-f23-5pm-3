@@ -40,4 +40,4 @@ const recommendationRequestFixtures = {
 };
 
 
-export {restaurantRecommendationFixtures};
+export {recommendationRequestFixtures};
