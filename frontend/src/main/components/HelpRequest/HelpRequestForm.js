@@ -21,6 +21,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+    const teamid_regex = /^[sfwm]\d{2}-(1[0-2]|[1-9])(am|pm)-[1-4]$/i;
 
     return (
 
@@ -62,7 +63,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="teamId">Team </Form.Label>
+                        <Form.Label htmlFor="teamId">Team</Form.Label>
                         <Form.Control
                             data-testid="HelpRequestForm-teamId"
                             id="teamId"
@@ -70,12 +71,13 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             isInvalid={Boolean(errors.teamId)}
                             {...register("teamId", { 
                                 required: true, 
-                                pattern: /[A-Za-z]{1}\d{2}-\d{1}(am|pm)-\d{1}/i })}
+                                pattern: teamid_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.teamId && 'TeamId is required.'}
                             {errors.teamId?.type === 'pattern' && 'TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3'}
                         </Form.Control.Feedback>
+                        
                     </Form.Group>
                 </Col>
                 <Col>
@@ -141,7 +143,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.solved && 'Solved is required. '}
+                            {errors.solved && 'Solved is required.'}
                             {errors.solved?.type === 'pattern' && 'Solved must be true or false, e.g. true'}
                         </Form.Control.Feedback>
                     </Form.Group>
