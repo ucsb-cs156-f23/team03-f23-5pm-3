@@ -213,7 +213,7 @@ describe("HelpRequestForm tests", () => {
         fireEvent.change(teamIdField, { target: { value: "f22-5pm-3" } });
         expect(screen.queryByText(/TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3/)).not.toBeInTheDocument();
     
-        // Test with values that match each of the mutant patterns
+       // Test with values of mutant patterns
         const mutantValues = [
             "m142-9am-4", // added digit
             "f2-10am-2",  // one digit
@@ -226,31 +226,18 @@ describe("HelpRequestForm tests", () => {
             "s22-#am-3", // invalid time num
             "s22-16pm-3", // invalid time num
             "s22-5#-3am-1",
-            "s22-11am-3",
+            "s22-5#-3am-1ab",
             "s22-aam-3"
         ];
     
         for (const value of mutantValues) {
-            fireEvent.change(teamIdField, { target: { value } });
-            fireEvent.click(submitButton);
+            await fireEvent.change(teamIdField, { target: { value } });
+            await fireEvent.click(submitButton);
             await waitFor(() => {
-                expect(screen.queryByText(/TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3/)).toBeInTheDocument();
+                expect(screen.getByText(/TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3/)).toBeInTheDocument();
             });
         }
     });
-    
-    // const teamInput = screen.getByTestId(`${testId}-teamId`);
-    // fireEvent.change(teamInput, { target: { value: "ss22-5pm-3" } });
-    // fireEvent.click(submitButton);
-
-    // const solvedInput = screen.getByTestId(`${testId}-solved`);
-    // fireEvent.change(solvedInput, { target: { value: "a".repeat(31) } });
-    // fireEvent.click(submitButton);
-
-
-    // await waitFor(() => {
-    //     expect(screen.getBySolved(/TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3/)).toBeInTheDocument();
-    // });
 
     test("that navigate(-1) is called when Cancel is clicked", async () => {
 
