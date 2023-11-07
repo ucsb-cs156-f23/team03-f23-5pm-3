@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f23/team03-f23-5pm-3
 owner: ucsb-cs156-f23
 repo_name: team03-f23-5pm-3
-pull_requests: [{"author":{"id":"MDQ6VXNlcjQ2NTM5Mzg4","is_bot":false,"login":"KarimBenyassine1","name":"Karim Benyassine"},"headRefName":"karim-ucsbdiningcommonsmenutiem-placeholders","number":73,"title":"Added placeholders for UCSB Dining Commons Menu Item ","url":"https://github.com/ucsb-cs156-f23/team03-f23-5pm-3/pull/73"},{"author":{"id":"MDQ6VXNlcjQ2NTM5Mzg4","is_bot":false,"login":"KarimBenyassine1","name":"Karim Benyassine"},"headRefName":"karim-ucsbdiningcommonsmenuitem-fixtures","number":72,"title":"added UCSBDiningCommonsMenuItems fixtures","url":"https://github.com/ucsb-cs156-f23/team03-f23-5pm-3/pull/72"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjQ2NTM5Mzg4","is_bot":false,"login":"KarimBenyassine1","name":"Karim Benyassine"},"headRefName":"karim-ucsbdiningcommonsmenutiem-placeholders","number":73,"title":"Added placeholders for UCSB Dining Commons Menu Item ","url":"https://github.com/ucsb-cs156-f23/team03-f23-5pm-3/pull/73"}]
