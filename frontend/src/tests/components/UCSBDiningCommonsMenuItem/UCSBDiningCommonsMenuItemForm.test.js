@@ -94,11 +94,44 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
 
         const nameInput = screen.getByTestId(`${testId}-name`);
         fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
+
+
+        const stationInput = screen.getByTestId(`${testId}-station`);
+        fireEvent.change(stationInput, { target: { value: "a".repeat(31) } });
+
+        const diningCommonsCodeInput = screen.getByTestId(`${testId}-diningCommonsCode`);
+        fireEvent.change(diningCommonsCodeInput, { target: { value: "a".repeat(31) } });
         fireEvent.click(submitButton);
 
         await waitFor(() => {
-            expect(screen.getByText(/Max length 30 characters/)).toBeInTheDocument();
+            expect(screen.getAllByText(/Max length 30 characters/).length).toBe(3);
         });
+    });
+
+    test("No Error messsages on good input", async () => {
+
+        const mockSubmitAction = jest.fn();
+
+
+        render(
+            <Router  >
+                <UCSBDiningCommonsMenuItemForm submitAction={mockSubmitAction} />
+            </Router>
+        );
+        await screen.findByTestId(`${testId}-diningCommonsCode`);
+
+        const diningCommonsCodeField = screen.getByTestId(`${testId}-diningCommonsCode`);
+        const nameField = screen.getByTestId(`${testId}-name`);
+        const stationField = screen.getByTestId(`${testId}-station`);
+        const submitButton = screen.getByTestId(`${testId}-submit`);
+
+        fireEvent.change(diningCommonsCodeField, { target: { value: 'goleta' } });
+        fireEvent.change(nameField, { target: { value: 'chicken' } });
+        fireEvent.change(stationField, { target: { value: 'entree' } });
+        fireEvent.click(submitButton);
+
+        await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
+
     });
 
 });
