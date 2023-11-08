@@ -22,13 +22,13 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
 
-    // Stryker disable next-line all
-    const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+    
+    
 
 
-    const stars_regex = "^([+-]?[1-9]\d*|0)$";
+    
 
-    const email_regx = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+    //const email_regx = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
     return (
 
@@ -55,18 +55,16 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="itemid">itemid</Form.Label>
+                        <Form.Label htmlFor="itemid">itemid </Form.Label>
                         <Form.Control
                             data-testid="MenuItemReviewForm-itemid"
                             id="itemid"
                             type="text"
-                            isInvalid={Boolean(errors.reviewerEmail)}
-                            {...register("itemid", {
-                                required: "Itemid is required."
-                            })}
+                            isInvalid={Boolean(errors.itemid)}
+                            {...register("itemid", { required: true })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.name?.message}
+                            {errors.itemid && 'itemid is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -80,34 +78,34 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.reviewerEmail)}
                             {...register("reviewerEmail", {
-                                required: "ReviewerEmail is required."
+                                required: true
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.name?.message}
+                            {errors.reviewerEmail && 'reviewerEmail is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="stars">stars</Form.Label>
+                        <Form.Label htmlFor="stars">Stars</Form.Label>
                         <Form.Control
                             data-testid="MenuItemReviewForm-stars"
                             id="stars"
                             type="text"
                             isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
-                                required: "Stars are required."
+                                required: true
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.name?.message}
+                            {errors.stars && 'stars is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="dateReviewed">dateReviewed (iso format)</Form.Label>
+                        <Form.Label htmlFor="dateReviewed">DateReviewed (iso format)</Form.Label>
                         <Form.Control
                             data-testid="MenuItemReviewForm-dateReviewed"
                             id="dateReviewed"
@@ -134,11 +132,11 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.comments)}
                             {...register("comments", {
-                                required: "Comments are required."
+                                required: true
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.name?.message}
+                            {errors.comments && 'comments is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
