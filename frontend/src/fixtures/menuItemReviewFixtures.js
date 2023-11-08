@@ -1,13 +1,13 @@
 const menuItemReviewFixtures = {
    
-    oneDate: {
+    oneReview: {
         "id": 1,
         "itemid": 5,
         "stars": 3,
         "dateReviewed": "2022-01-02T12:00:00",
         "comments": "a comment"
     },
-    threeDates: [
+    threeReviews: [
         {
             "id": 2,
             "itemid": 6,
