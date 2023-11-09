@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f23/team03-f23-5pm-3
 owner: ucsb-cs156-f23
 repo_name: team03-f23-5pm-3
-pull_requests: [{"author":{"id":"U_kgDOBqGjHg","is_bot":false,"login":"madisonlong1","name":""},"headRefName":"Madison-item39","number":95,"title":"Completes item 39, placeholders ","url":"https://github.com/ucsb-cs156-f23/team03-f23-5pm-3/pull/95"}]
+pull_requests: [{"author":{"id":"U_kgDOBX3Xdg","is_bot":false,"login":"kaitntom","name":""},"headRefName":"Kaitlyn-Org-Table","number":96,"title":"Kaitlyn-Table Component for UCSBOrganization plus tests","url":"https://github.com/ucsb-cs156-f23/team03-f23-5pm-3/pull/96"},{"author":{"id":"U_kgDOBqGjHg","is_bot":false,"login":"madisonlong1","name":""},"headRefName":"Madison-item39","number":95,"title":"Completes item 39, placeholders ","url":"https://github.com/ucsb-cs156-f23/team03-f23-5pm-3/pull/95"}]
