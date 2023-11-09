@@ -50,15 +50,15 @@ export default function UCSBOrganizationTable({ organization, currentUser }) {
         columns.push(ButtonColumn("Edit", "primary", editCallback, "UCSBOrganizationTable"));
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "UCSBOrganizationTable"));
     } 
-    organization.forEach((element, index, arr) => {
-        console.log(element);
-        if (arr[index]['inactive'] === true){
-            arr[index]['inactive'] = "true";
-        }
-        if (arr[index]['inactive'] === false){
-            arr[index]['inactive'] = "false";
-        }
-    });
+    // organization.forEach((element, index, arr) => {
+    //     console.log(element);
+    //     if (arr[index]['inactive'] === true){
+    //         arr[index]['inactive'] = "true";
+    //     }
+    //     if (arr[index]['inactive'] === false){
+    //         arr[index]['inactive'] = "false";
+    //     }
+    // });
     return <OurTable
         data={organization}
         columns={columns}
