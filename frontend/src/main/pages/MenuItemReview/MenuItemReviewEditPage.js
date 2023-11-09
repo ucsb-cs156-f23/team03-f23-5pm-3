@@ -1,7 +1,7 @@
 import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm";
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { Navigate } from 'react-router-dom'
-import { useBackendMutation } from "main/utils/useBackend";
+import { useBackend,useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 
@@ -35,6 +35,8 @@ export default function MenuitemReviewEditPage({storybook=false}) {
       id: menuItemReview.id,
     },
     data: {
+      id: menuItemReview.id,
+      itemid: menuItemReview.itemid,
       reviewerEmail: menuItemReview.reviewerEmail,
       stars: menuItemReview.stars,
       dateReviewed: menuItemReview.dateReviewed,
@@ -43,7 +45,7 @@ export default function MenuitemReviewEditPage({storybook=false}) {
   });
 
   const onSuccess = (menuItemReview) => {
-    toast(`MenuItemReview Updated - id: ${menuItemReview.id} name: ${menuItemReview.name}`);
+    toast(`MenuItemReview Updated - id: ${menuItemReview.id} itemid: ${menuItemReview.itemid}`);
   }
 
   const mutation = useBackendMutation(
