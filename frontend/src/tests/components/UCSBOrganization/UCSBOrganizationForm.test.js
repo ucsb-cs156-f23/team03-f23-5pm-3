@@ -20,7 +20,7 @@ describe("UCSBOrganizationForm tests", () => {
                 <UCSBOrganizationForm />
             </Router>
         );
-        await screen.findByText(/OrgCode/);
+        await screen.findByText(/Orgcode/);
         await screen.findByText(/Create/);
     });
 
@@ -32,11 +32,11 @@ describe("UCSBOrganizationForm tests", () => {
                 <UCSBOrganizationForm initialContents={ucsbOrganizationFixtures.oneOrganization} />
             </Router>
         );
-        await screen.findByTestId(/UCSBOrganizationForm-orgCode/);
-        const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgCode");
+        await screen.findByTestId(/UCSBOrganizationForm-orgcode/);
+        const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgcode");
         fireEvent.change(orgCodeField, { target: { value: 'ZPR' } });
         //expect(screen.getByText(/orgCode/)).toBeInTheDocument();
-        expect(screen.getByTestId(/UCSBOrganizationForm-orgCode/)).toHaveValue("ZPR");
+        expect(screen.getByTestId(/UCSBOrganizationForm-orgcode/)).toHaveValue("ZPR");
         
     });
 
@@ -89,10 +89,10 @@ describe("UCSBOrganizationForm tests", () => {
             </Router>
         );
         
-        await screen.findByTestId("UCSBOrganizationForm-orgCode");
+        await screen.findByTestId("UCSBOrganizationForm-orgcode");
         
 
-        const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgCode");
+        const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgcode");
         const orgTranslationShortField = screen.getByTestId("UCSBOrganizationForm-orgTranslationShort");
         const orgTranslationField = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
         const inactiveField = screen.getByTestId("UCSBOrganizationForm-inactive");
