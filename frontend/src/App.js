@@ -23,6 +23,7 @@ import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewInd
 import MenuItemReviewCreatePage from "main/pages/MenuItemReview/MenuItemReviewCreatePage";
 import MenuItemReviewEditPage from "main/pages/MenuItemReview/MenuItemReviewEditPage";
 
+
 import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
 import UCSBDiningCommonsMenuItemCreatePage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemCreatePage";
 import UCSBDiningCommonsMenuItemEditPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemEditPage";
@@ -42,7 +43,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   const { data: currentUser } = useCurrentUser();
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -114,13 +115,17 @@ function App() {
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
+
+
               <Route exact path="/helprequest" element={<HelpRequestIndexPage />} />
+
             </>
           )
         }
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
+
               <Route exact path="/helprequest/edit/:id" element={<HelpRequestEditPage />} />
               <Route exact path="/helprequest/create" element={<HelpRequestCreatePage />} />
             </>
@@ -175,6 +180,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;
