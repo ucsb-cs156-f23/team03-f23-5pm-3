@@ -35,19 +35,19 @@ function UCSBOrganizationForm({  submitAction, buttonLabel = "Create" }) {
                 
                 <Col>
                         <Form.Group className="mb-3" >
-                            <Form.Label htmlFor="orgCode">OrgCode</Form.Label>
+                            <Form.Label htmlFor="orgcode">Orgcode</Form.Label>
                             <Form.Control
-                                data-testid="UCSBOrganizationForm-orgCode"
-                                id="orgCode"
+                                data-testid="UCSBOrganizationForm-orgcode"
+                                id="orgcode"
                                 type="text"
-                                isInvalid={Boolean(errors.orgCode)}
-                                {...register("orgCode", {
+                                isInvalid={Boolean(errors.orgcode)}
+                                {...register("orgcode", {
                                     required: "OrgCode is required."
                                 })}
                             
                             />
                             <Form.Control.Feedback type="invalid">
-                                {errors.orgCode?.message}
+                                {errors.orgcode?.message}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Col>
