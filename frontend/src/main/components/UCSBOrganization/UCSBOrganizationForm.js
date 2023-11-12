@@ -2,7 +2,7 @@ import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
-function UCSBOrganizationForm({  submitAction, buttonLabel = "Create" }) {
+function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
     // Stryker disable all
     const {
@@ -10,7 +10,7 @@ function UCSBOrganizationForm({  submitAction, buttonLabel = "Create" }) {
         formState: { errors },
         handleSubmit,
     } = useForm(
-        { defaultValues: {}, }
+        { defaultValues: initialContents || {}, }
     );
     // Stryker restore all
 
