@@ -15,7 +15,6 @@ export default function RecommendationRequestTable({ recommendationRequest, curr
     }
 
     // Stryker disable all : hard to test for query caching
-
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
@@ -23,7 +22,7 @@ export default function RecommendationRequestTable({ recommendationRequest, curr
     );
     // Stryker restore all 
 
-    // Stryker disable next-line all : TODO try to make a good test for this
+    // Stryker disable next-line all
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
 
