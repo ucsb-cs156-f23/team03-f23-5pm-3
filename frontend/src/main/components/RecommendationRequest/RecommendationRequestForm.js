@@ -20,6 +20,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
         { defaultValues: initialContents || {}, }
     );
     // Stryker restore all
+    
     const navigate = useNavigate();
     const testIdPrefix = "RecommendationRequestForm";
 

@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 
-
 const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
@@ -23,7 +22,7 @@ describe("UserTable tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-              <RecommendationRequestTable recommendationRequest={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
+              <RecommendationRequestTable requests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
             </MemoryRouter>
           </QueryClientProvider>
 
@@ -61,7 +60,7 @@ describe("UserTable tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <RecommendationRequestTable recommendationRequest={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
+                    <RecommendationRequestTable requests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
                 </MemoryRouter>
             </QueryClientProvider>
 
@@ -100,7 +99,7 @@ describe("UserTable tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <RecommendationRequestTable recommendationRequest={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
+                    <RecommendationRequestTable requests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
                 </MemoryRouter>
             </QueryClientProvider>
 
@@ -124,7 +123,7 @@ describe("UserTable tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <RecommendationRequestTable recommendationRequest={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
+                    <RecommendationRequestTable requests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
                 </MemoryRouter>
             </QueryClientProvider>
 

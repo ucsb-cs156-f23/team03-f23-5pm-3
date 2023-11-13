@@ -54,7 +54,6 @@ describe("RecommendationRequest tests", () => {
         });
     });
 
-
     test("that navigate(-1) is called when Cancel is clicked", async () => {
         render(
             <QueryClientProvider client={queryClient}>
@@ -91,7 +90,6 @@ describe("RecommendationRequest tests", () => {
         expect(screen.getByText(/Date needed is required./)).toBeInTheDocument();
         expect(screen.getByText(/Done field is required./)).toBeInTheDocument();
     });
-
 
     test("correct error messsages on bad input: requesterEmail", async () => {
 

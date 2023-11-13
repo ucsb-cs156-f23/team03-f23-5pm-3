@@ -6,7 +6,7 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/recommendat
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function RecommendationRequestTable({ recommendationRequest, currentUser }) {
+export default function RecommendationRequestTable({ requests, currentUser }) {
 
     const navigate = useNavigate();
 
@@ -24,7 +24,6 @@ export default function RecommendationRequestTable({ recommendationRequest, curr
 
     // Stryker disable next-line all
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
-
 
     const columns = [
         {
@@ -63,7 +62,7 @@ export default function RecommendationRequestTable({ recommendationRequest, curr
     } 
 
     return <OurTable
-        data={recommendationRequest}
+        data={requests}
         columns={columns}
         testid={"RecommendationRequestTable"}
     />;
