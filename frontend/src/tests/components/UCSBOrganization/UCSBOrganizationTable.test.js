@@ -45,6 +45,7 @@ describe("UserTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgcode`)).toHaveTextContent("SKY");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgcode`)).toHaveTextContent("OSLI");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("true");
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
@@ -83,6 +84,7 @@ describe("UserTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgcode`)).toHaveTextContent("SKY");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgcode`)).toHaveTextContent("OSLI");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("true");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
