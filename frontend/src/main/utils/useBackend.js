@@ -26,7 +26,6 @@ import { toast } from "react-toastify";
 // );
 
 export function useBackend(queryKey, axiosParameters, initialData) {
-
     return useQuery(queryKey, async () => {
         try {
             const response = await axios(axiosParameters);

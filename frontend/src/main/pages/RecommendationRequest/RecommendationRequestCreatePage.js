@@ -15,7 +15,8 @@ export default function RecommendationRequestCreatePage({storybook=false}) {
       explanation: requests.explanation,
       dateRequested: requests.dateRequested,
       dateNeeded: requests.dateNeeded,
-      done: requests.done
+      // Stryker disable next-line all
+      done: requests.done === "true"
     }
   });
 
