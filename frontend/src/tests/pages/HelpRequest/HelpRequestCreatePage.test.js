@@ -60,7 +60,7 @@ describe("HelpRequestCreatePage tests", () => {
             tableOrBreakoutRoom: "7",
             requestTime: "2022-04-20T17:35",
             explanation: "Need help with Swagger-ui",
-            solved: "true"
+            solved: true,
         };
 
         axiosMock.onPost("/api/helprequests/post").reply( 202, helpRequest );
@@ -89,7 +89,7 @@ describe("HelpRequestCreatePage tests", () => {
         fireEvent.change(tableOrBreakoutRoomField, { target: { value: '7' } });
         fireEvent.change(requestTimeField, { target: { value: '2022-04-20T17:35' } });
         fireEvent.change(explanationField, { target: { value: 'Need help with Swagger-ui' } });
-        fireEvent.change(solvedField, { target: { value: 'true' } });
+        fireEvent.change(solvedField, { target: { value: true } });
         
 
         expect(submitButton).toBeInTheDocument();
@@ -105,7 +105,7 @@ describe("HelpRequestCreatePage tests", () => {
             "tableOrBreakoutRoom": "7",
             "requestTime": "2022-04-20T17:35",
             "explanation": "Need help with Swagger-ui",
-            "solved": "true"
+            "solved": true
         });
 
         expect(mockToast).toBeCalledWith("New helpRequest Created - id: 1 requesterEmail: cgaucho@ucsb.edu");

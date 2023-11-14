@@ -97,7 +97,7 @@ describe("HelpRequestIndexPage tests", () => {
         // arrange
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/helprequest/all").timeout();
+        axiosMock.onGet("/api/helprequests/all").timeout();
         const restoreConsole = mockConsole();
 
         // act
