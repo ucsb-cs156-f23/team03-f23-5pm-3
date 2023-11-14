@@ -20,10 +20,9 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
         { defaultValues: initialContents || {}, }
     );
     // Stryker restore all
+    
     const navigate = useNavigate();
     const testIdPrefix = "RecommendationRequestForm";
-
-    // Stryker disable next-line all
 
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
@@ -33,7 +32,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         <Form.Group className="mb-3" >
                             <Form.Label htmlFor="id">Id</Form.Label>
                             <Form.Control
-                                data-testid={testIdPrefix + "-id"}
+                                data-testid="RecommendationRequestForm-id"
                                 id="id"
                                 type="text"
                                 {...register("id")}

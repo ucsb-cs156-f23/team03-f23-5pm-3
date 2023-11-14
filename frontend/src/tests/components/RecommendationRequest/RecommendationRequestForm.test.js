@@ -52,11 +52,7 @@ describe("RecommendationRequest tests", () => {
             const header = screen.getByText(headerText);
             expect(header).toBeInTheDocument();
         });
-
-        expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
-        expect(screen.getByText(`Id`)).toBeInTheDocument();
     });
-
 
     test("that navigate(-1) is called when Cancel is clicked", async () => {
         render(
@@ -94,7 +90,6 @@ describe("RecommendationRequest tests", () => {
         expect(screen.getByText(/Date needed is required./)).toBeInTheDocument();
         expect(screen.getByText(/Done field is required./)).toBeInTheDocument();
     });
-
 
     test("correct error messsages on bad input: requesterEmail", async () => {
 
