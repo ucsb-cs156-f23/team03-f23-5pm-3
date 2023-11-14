@@ -27,7 +27,7 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @Tag(name = &quot;RecommendationRequests&quot;)
-@RequestMapping(&quot;/api/recommendationrequests&quot;)
+@RequestMapping(&quot;/api/recommendationrequest&quot;)
 @RestController
 <span class="fc" id="L32">@Slf4j</span>
 <span class="fc" id="L33">public class RecommendationRequestController extends ApiController {</span>
@@ -42,14 +42,6 @@ import java.time.LocalDateTime;
 <span class="fc" id="L42">        Iterable&lt;RecommendationRequest&gt; dates = recommendationRequestRepository.findAll();</span>
 <span class="fc" id="L43">        return dates;</span>
     }
-
-    // private long id;
-    // String requesterEmail;
-    // String professorEmail;
-    // String explanation;
-    // LocalDateTime dateRequested;
-    // LocalDateTime dateNeeded;
-    // boolean done;
 
     @Operation(summary= &quot;Create a new recommendation request&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
@@ -66,20 +58,20 @@ import java.time.LocalDateTime;
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         // See: https://www.baeldung.com/spring-date-parameters
 
-<span class="fc" id="L69">        log.info(&quot;dateRequested={}&quot;, dateRequested);</span>
-<span class="fc" id="L70">        log.info(&quot;dateNeeded={}&quot;, dateNeeded);</span>
+<span class="fc" id="L61">        log.info(&quot;dateRequested={}&quot;, dateRequested);</span>
+<span class="fc" id="L62">        log.info(&quot;dateNeeded={}&quot;, dateNeeded);</span>
 
-<span class="fc" id="L72">        RecommendationRequest recommendationRequest = new RecommendationRequest();</span>
-<span class="fc" id="L73">        recommendationRequest.setRequesterEmail(requesterEmail);</span>
-<span class="fc" id="L74">        recommendationRequest.setProfessorEmail(professorEmail);</span>
-<span class="fc" id="L75">        recommendationRequest.setExplanation(explanation);</span>
-<span class="fc" id="L76">        recommendationRequest.setDateRequested(dateRequested);</span>
-<span class="fc" id="L77">        recommendationRequest.setDateNeeded(dateNeeded);</span>
-<span class="fc" id="L78">        recommendationRequest.setDone(done);</span>
+<span class="fc" id="L64">        RecommendationRequest recommendationRequest = new RecommendationRequest();</span>
+<span class="fc" id="L65">        recommendationRequest.setRequesterEmail(requesterEmail);</span>
+<span class="fc" id="L66">        recommendationRequest.setProfessorEmail(professorEmail);</span>
+<span class="fc" id="L67">        recommendationRequest.setExplanation(explanation);</span>
+<span class="fc" id="L68">        recommendationRequest.setDateRequested(dateRequested);</span>
+<span class="fc" id="L69">        recommendationRequest.setDateNeeded(dateNeeded);</span>
+<span class="fc" id="L70">        recommendationRequest.setDone(done);</span>
 
-<span class="fc" id="L80">        RecommendationRequest savedRecommendationRequest = recommendationRequestRepository.save(recommendationRequest);</span>
+<span class="fc" id="L72">        RecommendationRequest savedRecommendationRequest = recommendationRequestRepository.save(recommendationRequest);</span>
 
-<span class="fc" id="L82">        return savedRecommendationRequest;</span>
+<span class="fc" id="L74">        return savedRecommendationRequest;</span>
     }
 
     @Operation(summary= &quot;Get a single recommendation request&quot;)
@@ -87,10 +79,10 @@ import java.time.LocalDateTime;
     @GetMapping(&quot;&quot;)
     public RecommendationRequest getById(
             @Parameter(name=&quot;id&quot;) @RequestParam Long id) {
-<span class="fc" id="L90">        RecommendationRequest recommendationRequest = recommendationRequestRepository.findById(id)</span>
-<span class="fc" id="L91">                .orElseThrow(() -&gt; new EntityNotFoundException(RecommendationRequest.class, id));</span>
+<span class="fc" id="L82">        RecommendationRequest recommendationRequest = recommendationRequestRepository.findById(id)</span>
+<span class="fc" id="L83">                .orElseThrow(() -&gt; new EntityNotFoundException(RecommendationRequest.class, id));</span>
 
-<span class="fc" id="L93">        return recommendationRequest;</span>
+<span class="fc" id="L85">        return recommendationRequest;</span>
     }
 
     @Operation(summary= &quot;Delete a recommendation request&quot;)
@@ -98,11 +90,11 @@ import java.time.LocalDateTime;
     @DeleteMapping(&quot;&quot;)
     public Object deleteRecommendationRequest(
             @Parameter(name=&quot;id&quot;) @RequestParam Long id) {
-<span class="fc" id="L101">        RecommendationRequest recommendationRequest = recommendationRequestRepository.findById(id)</span>
-<span class="fc" id="L102">                .orElseThrow(() -&gt; new EntityNotFoundException(RecommendationRequest.class, id));</span>
+<span class="fc" id="L93">        RecommendationRequest recommendationRequest = recommendationRequestRepository.findById(id)</span>
+<span class="fc" id="L94">                .orElseThrow(() -&gt; new EntityNotFoundException(RecommendationRequest.class, id));</span>
 
-<span class="fc" id="L104">        recommendationRequestRepository.delete(recommendationRequest);</span>
-<span class="fc" id="L105">        return genericMessage(&quot;RecommendationRequest with id %s deleted&quot;.formatted(id));</span>
+<span class="fc" id="L96">        recommendationRequestRepository.delete(recommendationRequest);</span>
+<span class="fc" id="L97">        return genericMessage(&quot;RecommendationRequest with id %s deleted&quot;.formatted(id));</span>
     }
 
     @Operation(summary= &quot;Update a single recommendation request&quot;)
@@ -112,19 +104,19 @@ import java.time.LocalDateTime;
             @Parameter(name=&quot;id&quot;) @RequestParam Long id,
             @RequestBody @Valid RecommendationRequest incoming) {
 
-<span class="fc" id="L115">        RecommendationRequest recommendationRequest = recommendationRequestRepository.findById(id)</span>
-<span class="fc" id="L116">                .orElseThrow(() -&gt; new EntityNotFoundException(RecommendationRequest.class, id));</span>
+<span class="fc" id="L107">        RecommendationRequest recommendationRequest = recommendationRequestRepository.findById(id)</span>
+<span class="fc" id="L108">                .orElseThrow(() -&gt; new EntityNotFoundException(RecommendationRequest.class, id));</span>
 
-<span class="fc" id="L118">        recommendationRequest.setRequesterEmail(incoming.getRequesterEmail());</span>
-<span class="fc" id="L119">        recommendationRequest.setProfessorEmail(incoming.getProfessorEmail());</span>
-<span class="fc" id="L120">        recommendationRequest.setExplanation(incoming.getExplanation());</span>
-<span class="fc" id="L121">        recommendationRequest.setDateRequested(incoming.getDateRequested());</span>
-<span class="fc" id="L122">        recommendationRequest.setDateNeeded(incoming.getDateNeeded());</span>
-<span class="fc" id="L123">        recommendationRequest.setDone(incoming.getDone());</span>
+<span class="fc" id="L110">        recommendationRequest.setRequesterEmail(incoming.getRequesterEmail());</span>
+<span class="fc" id="L111">        recommendationRequest.setProfessorEmail(incoming.getProfessorEmail());</span>
+<span class="fc" id="L112">        recommendationRequest.setExplanation(incoming.getExplanation());</span>
+<span class="fc" id="L113">        recommendationRequest.setDateRequested(incoming.getDateRequested());</span>
+<span class="fc" id="L114">        recommendationRequest.setDateNeeded(incoming.getDateNeeded());</span>
+<span class="fc" id="L115">        recommendationRequest.setDone(incoming.getDone());</span>
 
-<span class="fc" id="L125">        recommendationRequestRepository.save(recommendationRequest);</span>
+<span class="fc" id="L117">        recommendationRequestRepository.save(recommendationRequest);</span>
 
-<span class="fc" id="L127">        return recommendationRequest;</span>
+<span class="fc" id="L119">        return recommendationRequest;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
