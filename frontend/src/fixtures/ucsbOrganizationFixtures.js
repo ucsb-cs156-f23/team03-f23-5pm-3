@@ -10,7 +10,7 @@ const ucsbOrganizationFixtures = {
             "orgcode": "SKY",
             "orgTranslationShort": "SKYDIVING CLUB",
             "orgTranslation": "SKYDIVING CLUB AT UCSB",
-            "inactive": "false"
+            "inactive": "true"
         },
         {
             "orgcode": "OSLI",
@@ -22,7 +22,7 @@ const ucsbOrganizationFixtures = {
             "orgcode": "KRC",
             "orgTranslationShort": "KOREAN RADIO CL",
             "orgTranslation": "KOREAN RADIO CLUB",
-            "inactive": "false"
+            "inactive": "true"
         }
     ]
 };
