@@ -99,11 +99,11 @@ describe("UCSBOrganizationForm tests", () => {
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
         
 
-        await fireEvent.change(orgCodeField, { target: { value: 'ZPR' } });
-        await fireEvent.change(orgTranslationShortField, { target: { value: 'ZETA PHI RHO' } });
-        await fireEvent.change(orgTranslationField, { target: { value: 'ZETA PHI RHO' } });
-        await fireEvent.change(inactiveField, { target: { value: true } });
-        await fireEvent.click(submitButton);
+        fireEvent.change(orgCodeField, { target: { value: 'ZPR' } });
+        fireEvent.change(orgTranslationShortField, { target: { value: 'ZETA PHI RHO' } });
+        fireEvent.change(orgTranslationField, { target: { value: 'ZETA PHI RHO' } });
+        fireEvent.change(inactiveField, { target: { value: true } });
+        fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 

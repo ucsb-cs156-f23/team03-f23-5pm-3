@@ -32,7 +32,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
 
             <Row>
 
-                
+
                 <Col>
                         <Form.Group className="mb-3" >
                             <Form.Label htmlFor="orgcode">Orgcode</Form.Label>
@@ -51,6 +51,8 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Col>
+
+                    
                 <Col>
 
 

@@ -71,7 +71,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
         );
 
         await waitFor(() => {
-            expect(screen.getByTestId("UCSBOrganizationForm-orgcode")).toBeInTheDocument();
+            expect(screen.getByTestId("UCSBOrganizationForm-orgTranslation")).toBeInTheDocument();
         });
 
         const orgcodeField = screen.getByTestId("UCSBOrganizationForm-orgcode");
