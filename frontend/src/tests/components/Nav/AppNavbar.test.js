@@ -188,7 +188,7 @@ describe("AppNavbar tests", () => {
         await screen.findByText("UCSB Dining Commons Menu Items");
         const link = screen.getByText("UCSB Dining Commons Menu Items");
         expect(link).toBeInTheDocument();
-        expect(link.getAttribute("href")).toBe("/diningcommonsmenuitem");
+        expect(link.getAttribute("href")).toBe("/ucsbdiningcommonsmenuitem");
     });
 
     test("Restaurant, UCSBDates, and UCSBDiningCommonsMenuItems links do NOT show when not logged in", async () => {

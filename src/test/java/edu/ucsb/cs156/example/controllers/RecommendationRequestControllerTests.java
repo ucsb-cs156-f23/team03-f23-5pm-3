@@ -42,18 +42,18 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
         @MockBean
         UserRepository userRepository;
 
-        // Tests for GET /api/recommendationrequests/all
+        // Tests for GET /api/recommendationrequest/all
         
         @Test
         public void logged_out_users_cannot_get_all() throws Exception {
-                mockMvc.perform(get("/api/recommendationrequests/all"))
+                mockMvc.perform(get("/api/recommendationrequest/all"))
                                 .andExpect(status().is(403)); // logged out users can't get all
         }
 
         @WithMockUser(roles = { "USER" })
         @Test
         public void logged_in_users_can_get_all() throws Exception {
-                mockMvc.perform(get("/api/recommendationrequests/all"))
+                mockMvc.perform(get("/api/recommendationrequest/all"))
                                 .andExpect(status().is(200)); // logged
         }
 
@@ -92,7 +92,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
                 when(recommendationRequestRepository.findAll()).thenReturn(expectedRequests);
 
                 // act
-                MvcResult response = mockMvc.perform(get("/api/recommendationrequests/all"))
+                MvcResult response = mockMvc.perform(get("/api/recommendationrequest/all"))
                                 .andExpect(status().isOk()).andReturn();
 
                 // assert
@@ -103,18 +103,18 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
                 assertEquals(expectedJson, responseString);
         }
 
-        // Tests for POST /api/recommendationrequests/post...
+        // Tests for POST /api/recommendationrequest/post...
 
         @Test
         public void logged_out_users_cannot_post() throws Exception {
-                mockMvc.perform(post("/api/recommendationrequests/post"))
+                mockMvc.perform(post("/api/recommendationrequest/post"))
                                 .andExpect(status().is(403));
         }
 
         @WithMockUser(roles = { "USER" })
         @Test
         public void logged_in_regular_users_cannot_post() throws Exception {
-                mockMvc.perform(post("/api/recommendationrequests/post"))
+                mockMvc.perform(post("/api/recommendationrequest/post"))
                                 .andExpect(status().is(403)); // only admins can post
         }
 
@@ -139,7 +139,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/recommendationrequests/post?requesterEmail=requester@email.com&professorEmail=prof@email.com&explanation=Test explanation&dateRequested=2022-01-03T00:00:00&dateNeeded=2020-04-03T00:00:00&done=true")
+                                post("/api/recommendationrequest/post?requesterEmail=requester@email.com&professorEmail=prof@email.com&explanation=Test explanation&dateRequested=2022-01-03T00:00:00&dateNeeded=2020-04-03T00:00:00&done=true")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
@@ -150,11 +150,11 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
                 assertEquals(expectedJson, responseString);
         }
 
-        // Tests for GET /api/recommendationrequests?id=...
+        // Tests for GET /api/recommendationrequest?id=...
 
         @Test
         public void logged_out_users_cannot_get_by_id() throws Exception {
-                mockMvc.perform(get("/api/recommendationrequests?id=7"))
+                mockMvc.perform(get("/api/recommendationrequest?id=7"))
                                 .andExpect(status().is(403)); // logged out users can't get by id
         }
 
@@ -179,7 +179,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
                 when(recommendationRequestRepository.findById(eq(7L))).thenReturn(Optional.of(recommendationRequest));
 
                 // act
-                MvcResult response = mockMvc.perform(get("/api/recommendationrequests?id=7"))
+                MvcResult response = mockMvc.perform(get("/api/recommendationrequest?id=7"))
                                 .andExpect(status().isOk()).andReturn();
 
                 // assert
@@ -199,7 +199,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
                 when(recommendationRequestRepository.findById(eq(7L))).thenReturn(Optional.empty());
 
                 // act
-                MvcResult response = mockMvc.perform(get("/api/recommendationrequests?id=7"))
+                MvcResult response = mockMvc.perform(get("/api/recommendationrequest?id=7"))
                                 .andExpect(status().isNotFound()).andReturn();
 
                 // assert
@@ -211,7 +211,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
         }
 
 
-        // Tests for DELETE /api/recommendationrequests?id=... 
+        // Tests for DELETE /api/recommendationrequest?id=... 
 
         @WithMockUser(roles = { "ADMIN", "USER" })
         @Test
@@ -234,7 +234,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                delete("/api/recommendationrequests?id=15")
+                                delete("/api/recommendationrequest?id=15")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
@@ -256,7 +256,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                delete("/api/recommendationrequests?id=15")
+                                delete("/api/recommendationrequest?id=15")
                                                 .with(csrf()))
                                 .andExpect(status().isNotFound()).andReturn();
 
@@ -303,7 +303,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                put("/api/recommendationrequests?id=67")
+                                put("/api/recommendationrequest?id=67")
                                                 .contentType(MediaType.APPLICATION_JSON)
                                                 .characterEncoding("utf-8")
                                                 .content(requestBody)
@@ -341,7 +341,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                put("/api/recommendationrequests?id=67")
+                                put("/api/recommendationrequest?id=67")
                                                 .contentType(MediaType.APPLICATION_JSON)
                                                 .characterEncoding("utf-8")
                                                 .content(requestBody)
