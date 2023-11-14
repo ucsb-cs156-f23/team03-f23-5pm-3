@@ -20,7 +20,9 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
         }
       }
     );
+    
 
+  console.log(ucsbOrganization, _error, _status);
 
   const objectToAxiosPutParams = (ucsbOrganization) => ({
     url: "/api/ucsborganization",
@@ -62,7 +64,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
       <div className="pt-2">
         <h1>Edit UCSBOrganization</h1>
         {
-          ucsbOrganization && <UCSBOrganizationForm initialContents={ucsbOrganization} submitAction={onSubmit} buttonLabel="Update" />
+          ucsbOrganization && <UCSBOrganizationForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={ucsbOrganization} />
         }
       </div>
     </BasicLayout>
