@@ -61,6 +61,10 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
     } 
 
+    for(let i = 0; i < requests.length; i++) {
+        requests[i].done = requests[i].done.toString()
+    }
+
     return <OurTable
         data={requests}
         columns={columns}

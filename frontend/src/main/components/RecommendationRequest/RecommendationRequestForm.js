@@ -151,7 +151,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             data-testid={testIdPrefix + "-done"}
                             id="done"
                             type="text"
-                            isInvalid={Boolean(errors.professorEmail)}
+                            isInvalid={Boolean(errors.done)}
                             {...register("done", {
                                 required: "Done field is required.",
                                 pattern: {value: boolean_regex, message: "Value must be 'true' or 'false'."}
