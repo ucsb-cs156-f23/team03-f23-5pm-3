@@ -60,7 +60,7 @@ describe("RecommendationRequestCreatePage tests", () => {
             explanation: "Grad school", 
             dateRequested: "2023-07-12T12:00",  
             dateNeeded: "2023-11-01T12:00",    
-            done: "true",
+            done: true,
         };
 
         axiosMock.onPost("/api/recommendationrequest/post").reply( 202, request );
@@ -90,7 +90,7 @@ describe("RecommendationRequestCreatePage tests", () => {
         fireEvent.change(explanationField, { target: { value: "Grad school" } });
         fireEvent.change(dateRequestedField, { target: { value: "2023-07-12T12:00" } });
         fireEvent.change(dateNeededField, { target: { value: "2023-11-01T12:00" } });
-        fireEvent.change(doneField, { target: { value: "true" } });
+        fireEvent.change(doneField, { target: { value: true } });
 
         expect(submitButton).toBeInTheDocument(); 
         fireEvent.click(submitButton);
@@ -104,7 +104,7 @@ describe("RecommendationRequestCreatePage tests", () => {
                 "explanation": "Grad school", 
                 "dateRequested": "2023-07-12T12:00",  
                 "dateNeeded": "2023-11-01T12:00", 
-                "done": "true"
+                "done": true
         });
 
         expect(mockToast).toBeCalledWith("New recommendation request Created - id: 1");

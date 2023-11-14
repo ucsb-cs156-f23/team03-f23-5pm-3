@@ -27,7 +27,7 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @Tag(name = "RecommendationRequests")
-@RequestMapping("/api/recommendationrequests")
+@RequestMapping("/api/recommendationrequest")
 @RestController
 @Slf4j
 public class RecommendationRequestController extends ApiController {
@@ -42,14 +42,6 @@ public class RecommendationRequestController extends ApiController {
         Iterable<RecommendationRequest> dates = recommendationRequestRepository.findAll();
         return dates;
     }
-
-    // private long id;
-    // String requesterEmail;
-    // String professorEmail;
-    // String explanation;
-    // LocalDateTime dateRequested;
-    // LocalDateTime dateNeeded;
-    // boolean done;
 
     @Operation(summary= "Create a new recommendation request")
     @PreAuthorize("hasRole('ROLE_ADMIN')")

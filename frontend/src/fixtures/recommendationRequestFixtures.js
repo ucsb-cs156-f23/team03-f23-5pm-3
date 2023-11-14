@@ -34,7 +34,7 @@ const recommendationRequestFixtures = {
             "explanation": "Requesting letter of rec for grad school.",
             "dateRequested": "2023-06-07T12:00:00",
             "dateNeeded": "2023-11-07T12:00:00",
-            "done": true            
+            "done": true        
         }
     ]
 };
