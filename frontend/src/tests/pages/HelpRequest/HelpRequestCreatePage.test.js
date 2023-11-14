@@ -60,7 +60,7 @@ describe("HelpRequestCreatePage tests", () => {
             tableOrBreakoutRoom: "7",
             requestTime: "2022-04-20T17:35",
             explanation: "Need help with Swagger-ui",
-            solved: true
+            solved: true,
         };
 
         axiosMock.onPost("/api/helprequests/post").reply( 202, helpRequest );
