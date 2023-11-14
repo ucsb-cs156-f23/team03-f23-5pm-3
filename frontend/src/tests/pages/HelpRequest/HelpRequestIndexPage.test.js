@@ -62,7 +62,7 @@ describe("HelpRequestIndexPage tests", () => {
             expect(screen.getByText(/Create HelpRequest/)).toBeInTheDocument();
         });
         const button = screen.getByText(/Create HelpReques/);
-        expect(button).toHaveAttribute("href", "/helprequest/create");
+        expect(button).toHaveAttribute("href", "/helprequests/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
 
@@ -97,7 +97,7 @@ describe("HelpRequestIndexPage tests", () => {
         // arrange
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/helprequest/all").timeout();
+        axiosMock.onGet("/api/helprequests/all").timeout();
         const restoreConsole = mockConsole();
 
         // act

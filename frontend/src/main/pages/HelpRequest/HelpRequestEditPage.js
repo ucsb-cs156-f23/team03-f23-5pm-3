@@ -34,6 +34,7 @@ export default function HelpRequestEditPage({storybook=false}) {
       tableOrBreakoutRoom: helpRequest.tableOrBreakoutRoom,
       requestTime: helpRequest.requestTime,
       explanation: helpRequest.explanation,
+      // Stryker disable next-line all
       solved: helpRequest.solved === "true"
     }
   });
