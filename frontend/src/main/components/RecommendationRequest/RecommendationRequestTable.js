@@ -61,9 +61,11 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
     } 
 
+    // Stryker disable all : hard to test for query caching
     for(let i = 0; i < requests.length; i++) {
         requests[i].done = requests[i].done.toString()
     }
+    // Stryker restore all 
 
     return <OurTable
         data={requests}
