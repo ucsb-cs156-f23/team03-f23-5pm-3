@@ -60,7 +60,7 @@ describe("RecommendationRequestCreatePage tests", () => {
             explanation: "Grad school", 
             dateRequested: "2023-07-12T12:00",  
             dateNeeded: "2023-11-01T12:00",    
-            done: true,
+            done: "true",
         };
 
         axiosMock.onPost("/api/recommendationrequest/post").reply( 202, request );
@@ -104,7 +104,7 @@ describe("RecommendationRequestCreatePage tests", () => {
                 "explanation": "Grad school", 
                 "dateRequested": "2023-07-12T12:00",  
                 "dateNeeded": "2023-11-01T12:00", 
-                "done": true
+                "done": "true"
         });
 
         expect(mockToast).toBeCalledWith("New recommendation request Created - id: 1");
