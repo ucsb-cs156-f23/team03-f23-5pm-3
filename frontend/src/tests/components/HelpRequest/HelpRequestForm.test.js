@@ -90,7 +90,7 @@ describe("HelpRequestForm tests", () => {
         await screen.findByText(/RequesterEmail is required./);
         expect(screen.getByText(/TeamId is required./)).toBeInTheDocument();
         expect(screen.getByText(/TableOrBreakoutRoom is required./)).toBeInTheDocument();
-        expect(screen.getByText(/RequestTime is required./)).toBeInTheDocument();
+        expect(screen.getByText(/RequestTime is required and must be in iso format./)).toBeInTheDocument();
         expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
         expect(screen.getByText(/Solved is required./)).toBeInTheDocument();
     });
