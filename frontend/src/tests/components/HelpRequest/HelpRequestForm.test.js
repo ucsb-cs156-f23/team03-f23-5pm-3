@@ -154,7 +154,7 @@ describe("HelpRequestForm tests", () => {
         fireEvent.change(teamInput, { target: { value: "as22-5pm-3" } });
         fireEvent.click(submitButton);
         
-        await screen.findAllByText(/Solved must be true or false, e.g. true/);
+        await screen.findAllByText(/Solved is required.Solved must be true or false, e.g. true/);
         expect(screen.getByText(/TeamId must be in the format qYY-nTT-S, e.g. s22-5pm-3/)).toBeInTheDocument();
         // await waitFor(() => {
         //     expect(screen.getByText(/Solved must be true or false, e.g. true/)).toBeInTheDocument();

@@ -187,7 +187,7 @@ describe("HelpRequestEditPage tests", () => {
                 tableOrBreakoutRoom: "13",
                 requestTime: "2022-04-21T14:15",
                 explanation: "Merge conflict",
-                solved: true
+                solved: "true"
             })); // posted object
 
         });

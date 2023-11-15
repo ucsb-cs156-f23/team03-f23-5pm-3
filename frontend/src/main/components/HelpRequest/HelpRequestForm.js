@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create" }) {
-
+    // console.log(initialContents)
     // Stryker disable all
     const {
         register,
@@ -23,6 +23,8 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
     // Stryker disable next-line Regex
     const teamid_regex = /^[sfwm]\d{2}-(1[0-2]|[1-9])(am|pm)-[1-4]$/i;
+    // Stryker disable next-line Regex
+    const solved_regex = /^(true|false)$/i;
     // OH: not necessary... const tableorbreakout_regex = /\b([1-9]|[1-9]\d|100)\b/i;
 
     return (
@@ -141,7 +143,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             isInvalid={Boolean(errors.solved)}
                             {...register("solved", { 
                                 required: true,
-                                pattern: /^(true|false)$/
+                                pattern: solved_regex
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
