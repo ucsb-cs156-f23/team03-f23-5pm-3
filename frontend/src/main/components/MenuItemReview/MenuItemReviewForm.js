@@ -84,7 +84,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                 </Col>
 
                 <Col>
-                    <Form.Group className="mb-3" >
+                    {/* <Form.Group className="mb-3" >
                         <Form.Label htmlFor="reviewerEmail">ReviewerEmail</Form.Label>
                         <Form.Control
                             data-testid="MenuItemReviewForm-reviewerEmail"
@@ -98,6 +98,22 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.reviwerEmail?.message}
+                        </Form.Control.Feedback>
+                    </Form.Group> */}
+                    <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="reviewerEmail">ReviewerEmail</Form.Label>
+                        <Form.Control
+                            data-testid="MenuItemReviewForm-reviewerEmail"
+                            id="reviewerEmail"
+                            type="text"
+                            isInvalid={Boolean(errors.reviewerEmail)}
+                            {...register("reviewerEmail", {
+                                required: 'reviewerEmail is required.',
+                                pattern: { value: email_regex, message: 'enter a valid email'}
+                            })}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.reviewerEmail?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -134,7 +150,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         // </Form.Control.Feedback>
                         isInvalid={Boolean(errors.dateReviewed)}
                             {...register("dateReviewed", {
-                                required: 'Date Reviwed is required.',
+                                required: 'dateReviewed is required.',
                                 pattern: { value: isodate_regex, message: 'dateReviewed must be in ISO format'}
                             })}
                         />
