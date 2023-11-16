@@ -60,7 +60,7 @@ describe("MenuItemReviewCreatePage tests", () => {
             id: 17,
             itemid: 51,
             reviewerEmail: "mattsleep@gmail.com",
-            stars: "7",
+            stars: "2",
             dateReviewed: "2022-02-02T00:00",
             comments: "interesting flavor"
         };
@@ -88,7 +88,7 @@ describe("MenuItemReviewCreatePage tests", () => {
 
         fireEvent.change(itemidField, { target: { value: '51' } });
         fireEvent.change(reviewerEmailField, { target: { value: 'mattsleep@gmail.com' } });
-        fireEvent.change(starsField, { target: { value: '7' } });
+        fireEvent.change(starsField, { target: { value: '2' } });
         fireEvent.change(dateReviewedField, { target: { value: '2022-02-02T00:00' } });
         fireEvent.change(commentsField, { target: { value: 'interesting flavor' } });
         expect(submitButton).toBeInTheDocument();
@@ -101,7 +101,7 @@ describe("MenuItemReviewCreatePage tests", () => {
             {
             "itemid": "51",
             "reviewerEmail": "mattsleep@gmail.com",
-            "stars": "7",
+            "stars": "2",
             "dateReviewed": "2022-02-02T00:00",
             "comments": "interesting flavor"
         });

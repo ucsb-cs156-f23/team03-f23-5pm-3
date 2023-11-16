@@ -21,7 +21,9 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
+    const email_regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const number_regex = /^[0-9]\d*$/;
+    const stars_regex = /^[0-5]$/;
     
     
 
@@ -60,11 +62,23 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             data-testid="MenuItemReviewForm-itemid"
                             id="itemid"
                             type="text"
-                            isInvalid={Boolean(errors.itemid)}
-                            {...register("itemid", { required: true })}
+                        //     isInvalid={Boolean(errors.itemId)}
+                        //     {...register("itemid", {
+                        //         required: 'Item ID is required.',
+                        //         pattern: { value: number_regex, message: 'item id is invalid, enter a positive number.'}
+                        //     })}
+                        // />
+                        // <Form.Control.Feedback type="invalid">
+                        //     {errors.itemId?.message}
+                        // </Form.Control.Feedback>
+                        isInvalid={Boolean(errors.itemid)}
+                            {...register("itemid", {
+                                required: 'itemid is required.',
+                                pattern: { value: number_regex, message: 'enter a valid item id positive integer'}
+                            })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.itemid && 'itemid is required.'}
+                            {errors.itemid?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -76,13 +90,14 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             data-testid="MenuItemReviewForm-reviewerEmail"
                             id="reviewerEmail"
                             type="text"
-                            isInvalid={Boolean(errors.reviewerEmail)}
-                            {...register("reviewerEmail", {
-                                required: true
+                            isInvalid={Boolean(errors.reviwerEmail)}
+                            {...register("reviwerEmail", {
+                                required: 'reviwerEmail is required.',
+                                pattern: { value: email_regex, message: 'enter a valid email'}
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.reviewerEmail && 'reviewerEmail is required.'}
+                            {errors.reviwerEmail?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -95,11 +110,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
-                                required: true
+                                required: 'stars is required.',
+                                pattern: { value: stars_regex, message: 'stars invalid, enter a number between 0 and 5.'}
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.stars && 'stars is required.'}
+                            {errors.stars?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -110,11 +126,20 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             data-testid="MenuItemReviewForm-dateReviewed"
                             id="dateReviewed"
                             type="datetime-local"
-                            isInvalid={Boolean(errors.localDateTime)}
-                            {...register("dateReviewed", { required: true, pattern: isodate_regex })}
+                        //     isInvalid={Boolean(errors.localDateTime)}
+                        //     {...register("dateReviewed", { required: true, pattern: isodate_regex })}
+                        // />
+                        // <Form.Control.Feedback type="invalid">
+                        //     {errors.dateReviewed && 'dateReviewed is required. '}
+                        // </Form.Control.Feedback>
+                        isInvalid={Boolean(errors.dateReviewed)}
+                            {...register("dateReviewed", {
+                                required: 'Date Reviwed is required.',
+                                pattern: { value: isodate_regex, message: 'dateReviewed must be in ISO format'}
+                            })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.dateReviewed && 'dateReviewed is required. '}
+                            {errors.dateReviewed?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
