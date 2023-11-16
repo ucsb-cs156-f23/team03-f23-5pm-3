@@ -77,7 +77,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         isInvalid={Boolean(errors.itemid)}
                             {...register("itemid", {
                                 required: 'itemid is required.',
-                                // Stryker disable next-line all
                                 pattern: { value: number_regex, message: 'enter a valid item id positive integer'}
                             })}
                         />
@@ -113,7 +112,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             isInvalid={Boolean(errors.reviewerEmail)}
                             {...register("reviewerEmail", {
                                 required: 'reviewerEmail is required.',
-                                // Stryker disable next-line all
                                 pattern: { value: email_regex, message: 'enter a valid email'}
                             })}
                         />
@@ -132,7 +130,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
                                 required: 'stars is required.',
-                                // Stryker disable next-line all
                                 pattern: { value: stars_regex, message: 'stars invalid, enter a number between 0 and 5.'}
                             })}
                         />
@@ -157,7 +154,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         isInvalid={Boolean(errors.dateReviewed)}
                             {...register("dateReviewed", {
                                 required: 'dateReviewed is required.',
-                                // Stryker disable next-line all
                                 pattern: { value: isodate_regex, message: 'dateReviewed must be in ISO format'}
                             })}
                         />
